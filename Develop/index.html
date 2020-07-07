@@ -27,12 +27,32 @@
             aria-label="Generated Password"></textarea>
         </div>
 
-        <div class="card-footer bg-light">
-          <div class="row">
-            <h3>Choose your characters</h3>
-          </div>
-          <button id="generate" class="btn-primary">Generate Password</button>
+
+        <div class="container pb-2">
+          <h4>Select Your Characters</h4>
         </div>
+
+        <div class="row pl-4">
+          <input type="checkbox" name="lowerCaseChar" id="lowerCaseChar" aria-label="Lowercase letter checkbox" />
+          <label for="lowerCaseChar">Lowercase Letters</label>
+        </div>
+
+        <div class="row pl-4">
+          <input type="checkbox" name="upperCaseChar" id="upperCaseChar" aria-label="Uppercase letter checkbox" />
+          <label for="upperCaseChar">Uppercase Letters</label>
+        </div>
+
+        <div class="row pl-4">
+          <input type="checkbox" name="numbers" id="numbers" aria-label="Number checkbox" />
+          <label for="numbers">Numbers</label>
+        </div>
+
+        <div class="row pl-4">
+          <input type="checkbox" name="specialChar" id="specialChar" aria-label="Special character checkbox" />
+          <label for="specialChar">Special Characters</label>
+        </div>
+
+        <button id="generate" class="btn-primary">Generate Password</button>
       </div>
     </main>
   </div>

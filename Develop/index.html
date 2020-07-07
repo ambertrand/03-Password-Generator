@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title> Personal Password Generator</title>
-    
-    <!-- Bootstrap & external stylesheet -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  
-  <body>
-    
-    <div class="wrapper">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title> Personal Password Generator</title>
+
+  <!-- Bootstrap & external stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-light">
+  <div class="container-sm bg-dark mt-4 pt-2 pb-5">
+
+    <main class="wrapper pt-2">
       <header>
-        <h1>Personal Password Generator</h1>
+        <h1 class="text-white"><strong>Personal Password Generator</strong></h1>
       </header>
-      
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
-        </div>
+
+      <div class="card bg-light mb-4">
         <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
+          <textarea readonly id="password" placeholder="Your Secure Password"
+            aria-label="Generated Password"></textarea>
         </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+
+        <div class="card-footer bg-light">
+          <div class="row">
+            <h3>Choose your characters</h3>
+          </div>
+          <button id="generate" class="btn-primary">Generate Password</button>
         </div>
       </div>
-    </div>
-    
-    
-    <script src="script.js"></script>
-  </body>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>

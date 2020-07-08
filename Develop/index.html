@@ -22,15 +22,21 @@
       <header>
         <h1 class="text-white"><strong>Personal Password Generator</strong></h1>
       </header>
-<!-- Password generator card -->
+      <!-- Password generator card -->
       <div class="card bg-light mb-4">
         <div class="card-body">
           <textarea readonly id="password" placeholder="Your Secure Password"
             aria-label="Generated Password"></textarea>
         </div>
 
-<!-- Character selector container  -->
-        <div class="container pb-2">
+        <div class="wrapper pt-2 mb-4 text-center">
+          <h4>Desired Password Length</h4>
+          <input type="range" id="passwordLength" name="passwordLength" min="8" max="128" value="12" />
+          <input type="number" id="passwordLength" name="passwordLength" min="8" max="128" value="12" />
+        </div>
+
+        <!-- Character selector container  -->
+        <div class="container mt-3 pb-2">
           <h4>Select Your Characters</h4>
 
           <div class="row pl-3">

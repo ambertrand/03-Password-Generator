@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -50,6 +52,12 @@ input {
 
 label {
   padding-left: 5px;
+}
+
+.card-footer::after {
+  content: " ";
+  display: block;
+  clear: both;
 }
 
 .btn {

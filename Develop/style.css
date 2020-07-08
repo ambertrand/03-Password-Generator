@@ -46,6 +46,10 @@ header {
   min-height: 100px;
 }
 
+input#passwordLength {
+  margin-right: 8px;
+}
+
 input {
   margin-top: 5px;
 }

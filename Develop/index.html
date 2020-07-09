@@ -31,11 +31,8 @@
 
         <div class="wrapper pt-2 mb-4 text-center">
           <h4>Desired Password Length</h4>
-          <!-- Allows number on slider to change as its clicked and dragged along the slider -->
-          <!-- Source link https://www.youtube.com/watch?v=SK7s-LaWX4Y -->
-          <input type="range" id="passwordLength" name="passwordLength" min="8" max="128" value="12" onchange="sliderChange(this.value)" /><span
-          id="sliderStatus">12</span> 
-          
+          <input type="range" id="passwordLength" min="8" max="128" value="12" />
+          <input type="number" id="passwordNumber" min="8" max="128" value="12" />
 
         </div>
 
@@ -66,7 +63,7 @@
 
         <!-- Generator button card footer  -->
         <div class="card-footer bg-light text-center">
-          <button id="generator" class="btn btn-primary">Generate Password</button>
+          <button id="generate" class="btn btn-primary">Generate Password</button>
         </div>
       </div>
     </main>

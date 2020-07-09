@@ -49,11 +49,21 @@ div.addEventListener('submit', e => {
   const password = generatePassword(characterNumber, lowerCaseChar, upperCaseChar, numbers, specialChar);
 })
 
-
+// This creates overall list of all possible character codes
 function generatePassword(characterNumber, lowerCaseChar, upperCaseChar, numbers, specialChar) {
-  
-}
+  let charCodes = lowerCaseChar
+  if (upperCaseChar) charCodes = charCodes.concat (upperCaseChar)
+  if (numbers) charCodes = charCodes.concat (numbers)
+  if (specialChar) charCodes = charCodes.concat (specialChar)
 
+  const passwordCharacters = []
+  // Creates loop that can chooses random characters each cycle
+  for (let i = 0; i < characterNumber; i++) {
+    const character = charCodes[Math.floor(Math.random() * passwordCharacters.length)]
+    passwordCharacters.push(String.fromCharCode)(characterCode)
+  }
+  return passwordCharacters.join('')
+}
 
 // Generates loop for ascii character code range
 // Source  https://www.youtube.com/watch?v=iKo9pDKKHnc
@@ -62,7 +72,7 @@ function charArrayLowToHigh (low, high) {
   for (let i = low; i <= high; i++) {
     array.push(i)
   }
-  return array
+  return array;
 }
 
 // Write password to the #password input

@@ -25,6 +25,7 @@ const upperCaseCharEl = document.querySelector("#upperCaseChar");
 const numbersEl = document.querySelector("#numbers");
 const specialCharEl = document.querySelector("#specialChar");
 const div = document.querySelector("#passwordGeneratorCard")
+// const passwordDisplay = document.querySelector("#passwordDisplay")
 
 // Creating arrays of Ascii Characters
 const lowerCaseChar = charArrayLowToHigh (97, 122)
@@ -46,7 +47,8 @@ div.addEventListener('submit', e => {
   const upperCaseChar = upperCaseChar.checked;
   const numbers = numbers.checked;
   const specialChar = specialChar.checked;
-  const password = generatePassword(characterNumber, lowerCaseChar, upperCaseChar, numbers, specialChar);
+  let password = generatePassword(characterNumber, lowerCaseChar, upperCaseChar, numbers, specialChar);
+  //passwordDisplay.innerText = password
 })
 
 // This creates overall list of all possible character codes
@@ -57,9 +59,9 @@ function generatePassword(characterNumber, lowerCaseChar, upperCaseChar, numbers
   if (specialChar) charCodes = charCodes.concat (specialChar)
 
   const passwordCharacters = []
-  // Creates loop that can chooses random characters each cycle
+  // Creates for loop that can chooses random characters each cycle
   for (let i = 0; i < characterNumber; i++) {
-    const character = charCodes[Math.floor(Math.random() * passwordCharacters.length)]
+    const character = charCodes[Math.floor(Math.random() * charCodes.length)]
     passwordCharacters.push(String.fromCharCode)(characterCode)
   }
   return passwordCharacters.join('')

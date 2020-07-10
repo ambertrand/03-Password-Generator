@@ -21,6 +21,8 @@ const lowerCaseCharEl = document.querySelector("#lowerCaseChar");
 const upperCaseCharEl = document.querySelector("#upperCaseChar");
 const numbersEl = document.querySelector("#numbers");
 const specialCharEl = document.querySelector("#specialChar");
+const resultEl = document.querySelector("#password");
+const generateEl = document.querySelector("#generate");
 
 // Creating arrays of Ascii Characters
 // Source  https://www.youtube.com/watch?v=iKo9pDKKHnc
@@ -44,8 +46,28 @@ function charArrayLowToHigh (low, high) {
   return array;
 }
 
+  // Creates for loop that can chooses random characters each cycle
+  for (let i = 0; i < passwordLength; i++) {
+    const character = charCodes[Math.floor(Math.random() * charCodes.length)]
+    passwordCharacters.push(String.fromCharCode)(characterCode)
+  }
+  // return passwordCharacters.join('');
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateEl.addEventListener('click', () => {
+  const length = parseInt(passwordNumber.value);
+  const containsLower = lowerCaseCharEl.checked;
+  const containsUpper = upperCaseCharEl.checked;
+  const containsNumber = numbersEl.checked;
+  const containsSpecial = specialCharEl.checked;
+
+
+  resultEl.innerText = generatePassword(containsLower, containsUpper, containsNumber, containsSpecial, length);
+});
+
+
+
+
 
 // Write password to the #password input
 // function writePassword() {

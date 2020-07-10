@@ -98,7 +98,7 @@ function generatePassword(lowerCaseCharEl, upperCaseCharEl, numbersEl, specialCh
     return '';
   }
 
-
+//For loop for the password length
 for(let i = 0; i < length; i += totalPassword) {
   totalArr.forEach(type => {
     const funcName = Object.keys(type)[0];

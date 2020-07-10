@@ -44,9 +44,6 @@ function charArrayLowToHigh (low, high) {
   return array;
 }
 
-
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 

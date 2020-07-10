@@ -61,8 +61,13 @@ generateEl.addEventListener('click', () => {
   const containsNumber = numbersEl.checked;
   const containsSpecial = specialCharEl.checked;
 
-
-  resultEl.innerText = generatePassword(containsLower, containsUpper, containsNumber, containsSpecial, length);
+  resultEl.innerText = generatePassword(
+    containsLower, 
+    containsUpper, 
+    containsNumber, 
+    containsSpecial, 
+    length
+    );
 });
 
 

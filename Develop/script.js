@@ -24,6 +24,10 @@ const specialCharEl = document.querySelector("#specialChar");
 const resultEl = document.querySelector("#password");
 const generateEl = document.querySelector("#generate");
 
+const randomFunc  = {
+
+}
+
 // Creating arrays of Ascii Characters
 // Source  https://www.youtube.com/watch?v=iKo9pDKKHnc
 const lowerCaseChar = charArrayLowToHigh (97, 122);
@@ -53,7 +57,8 @@ function charArrayLowToHigh (low, high) {
   }
   // return passwordCharacters.join('');
 
-// Add event listener to generate button
+
+// Genereate Event listener
 generateEl.addEventListener('click', () => {
   const length = parseInt(passwordNumber.value);
   const containsLower = lowerCaseCharEl.checked;
@@ -70,9 +75,41 @@ generateEl.addEventListener('click', () => {
     );
 });
 
+// Generate password function
+function generatePassword(lowerCaseCharEl, upperCaseCharEl, numbersEl, specialCharEl, resultEl) {
+ 
+// Initiates password variable
+  let generatePassword = '';
+
+  const totalPassword = lowerCaseCharEl + upperCaseCharEl + numbersEl + specialCharEl;
+
+  // console.log('totalPassword', totalPassword)
+
+// Filters out unchecked boxes
+  const totalArr = [{lowerCaseCharEl}, {upperCaseCharEl}, {numbersEl}, {specialCharEl}].filter
+  (
+    item => Object.values(item) [0]
+  );
+
+  // console.log('totalArr', totalArr);
+
+// Checking if no boxes are checked
+  if(totalPassword ===0) {
+    return '';
+  }
 
 
+for(let i = 0; i < length; i += totalPassword) {
+  totalArr.forEach(type => {
+    const funcName = Object.keys(type)[0];
 
+
+    // generatePassword += randomFunc[funcName]();
+  });
+}
+
+console.log(generatePassword);
+}
 
 // Write password to the #password input
 // function writePassword() {

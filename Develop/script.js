@@ -26,7 +26,7 @@ const generateEl = document.querySelector("#generate");
 
 
 // Generate Event listener
-generateEl.addEventListener('click', function() {
+generateEl.addEventListener('click', function () {
   let length = parseInt(pwlengthEl.value);
   const containsLower = lowerCaseCharEl.checked;
   const containsUpper = upperCaseCharEl.checked;
@@ -49,9 +49,7 @@ function generatePassword(lower, upper, number, symbol, length) {
   // console.log('totalPassword', totalPassword)
 
   // Filters out unchecked boxes and creates array of objects
-  const totalArr = [{ lower }, { upper }, { number }, { symbol }].filter
-    (
-      item => Object.values(item)[0]
+  const totalArr = [{ lower }, { upper }, { number }, { symbol }].filter((item) => Object.values(item)[0]
       // function(item) {(Object.values(item)[0])}
     );
 
@@ -66,40 +64,48 @@ function generatePassword(lower, upper, number, symbol, length) {
   for (let i = 0; i < length; i += totalPassword) {
     totalArr.forEach(type => {
       const funcName = Object.keys(type)[0];
-      console.log('funcName: ', funcName);
+      // console.log('funcName: ', funcName);
 
       // Taking password string and append on to it to take upper, lower, number, symbol
       generatePassword += charObject[funcName]();
-  //     resultEl.value = password;
-  //   });
-    // }
-
-    // console.log(generatePassword);
+      //     resultEl.value = password;
+    });
   }
 
-  // Moving each function into an object
-  // Source https://www.youtube.com/watch?v=duNmhKgtcsI
-  const charObject = {
-    lower: lowerCaseChar,
-    upper: upperCaseChar,
-    number: numChar,
-    symbol: specialChar,
-  };
+  const finalPassword =
+  console.log(generatePassword);
+}
 
-  // Generator Functions using ascii characters for lower, upper & numbers
-  function lowerCaseChar() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-  }
+// Reverse filter and arrow function line 52 
+// Explaining loop line 64
+// Pushing lowercase, upper, number etc. function into array
+// Hit for loop, inside randomly selected element in array
+// Push string onto page as password
 
-  function upperCaseChar() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-  }
 
-  function numChar() {
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-  }
+// Moving each function into an object
+// Source https://www.youtube.com/watch?v=duNmhKgtcsI
+const charObject = {
+  lower: lowerCaseChar,
+  upper: upperCaseChar,
+  number: numChar,
+  symbol: specialChar,
+};
 
-  function specialChar() {
-    const special = '!@#$%^&*(){}[]=<>/,.';
-    return special[Math.floor(Math.random() * special.length)];
-  }
+// Generator Functions using ascii characters for lower, upper & numbers
+function lowerCaseChar() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+
+function upperCaseChar() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+
+function numChar() {
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
+
+function specialChar() {
+  const special = '!@#$%^&*(){}[]=<>/,.';
+  return special[Math.floor(Math.random() * special.length)];
+}

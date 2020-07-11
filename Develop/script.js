@@ -23,6 +23,8 @@ const numbersEl = document.querySelector("#numbers");
 const specialCharEl = document.querySelector("#specialChar");
 const generateEl = document.querySelector("#generate");
 
+
+
 // Generate Event listener
 generateEl.addEventListener('click', function() {
   let length = parseInt(pwlengthEl.value);
@@ -31,35 +33,73 @@ generateEl.addEventListener('click', function() {
   const containsNumber = numbersEl.checked;
   const containsSpecial = specialCharEl.checked;
 
-// console.log(length);
+  // console.log(length);
 
   resultEl.innerText = generatePassword(containsLower, containsUpper, containsNumber, containsSpecial, length);
 });
 
-// Moving each function into an object
-// Source https://www.youtube.com/watch?v=duNmhKgtcsI
-const charObject = {
-  lower: lowerCaseChar,
-  upper: upperCaseChar,
-  number: numChar,
-  symbol: specialChar,
-};
+// Generate password function
+function generatePassword(lower, upper, number, symbol, length) {
 
+  // Initiates password variable
+  let generatePassword = '';
 
-// Generator Functions using ascii characters for lower, upper & numbers
-function lowerCaseChar() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
+  const totalPassword = lower + upper + number + symbol;
 
-function upperCaseChar() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
+  // console.log('totalPassword', totalPassword)
 
-function numChar() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
+  // Filters out unchecked boxes and creates array of objects
+  const totalArr = [{ lower }, { upper }, { number }, { symbol }].filter
+    (
+      item => Object.values(item)[0]
+      // function(item) {(Object.values(item)[0])}
+    );
 
-function specialChar() {
-  const special = '!@#$%^&*(){}[]=<>/,.';
-  return special[Math.floor(Math.random() * special.length)];
-}
+  // console.log('totalArr: ', totalArr);
+
+  // Checking if no boxes are checked
+  if (totalPassword === 0) {
+    return '';
+  }
+
+  //For loop for the password length
+  for (let i = 0; i < length; i += totalPassword) {
+    totalArr.forEach(type => {
+      const funcName = Object.keys(type)[0];
+      console.log('funcName: ', funcName);
+
+      // Taking password string and append on to it to take upper, lower, number, symbol
+      generatePassword += charObject[funcName]();
+  //     resultEl.value = password;
+  //   });
+    // }
+
+    // console.log(generatePassword);
+  }
+
+  // Moving each function into an object
+  // Source https://www.youtube.com/watch?v=duNmhKgtcsI
+  const charObject = {
+    lower: lowerCaseChar,
+    upper: upperCaseChar,
+    number: numChar,
+    symbol: specialChar,
+  };
+
+  // Generator Functions using ascii characters for lower, upper & numbers
+  function lowerCaseChar() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  }
+
+  function upperCaseChar() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+  }
+
+  function numChar() {
+    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+  }
+
+  function specialChar() {
+    const special = '!@#$%^&*(){}[]=<>/,.';
+    return special[Math.floor(Math.random() * special.length)];
+  }

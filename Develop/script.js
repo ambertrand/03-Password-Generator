@@ -24,39 +24,13 @@ const specialCharEl = document.querySelector("#specialChar");
 const resultEl = document.querySelector("#password");
 const generateEl = document.querySelector("#generate");
 
-const randomFunc  = {
-
-}
-
-// Creating arrays of Ascii Characters
-// Source  https://www.youtube.com/watch?v=iKo9pDKKHnc
-const lowerCaseChar = charArrayLowToHigh (97, 122);
-const upperCaseChar = charArrayLowToHigh (65, 90);
-const numChar = charArrayLowToHigh (48, 57);
-const specialChar = charArrayLowToHigh (33, 47).concat(
-  charArrayLowToHigh(58, 64)
-  ).concat(
-    charArrayLowToHigh(91,96)
-  ).concat(
-    charArrayLowToHigh(123, 126)
-  );
-
-// Generates loop for ascii character code range
-function charArrayLowToHigh (low, high) {
-  const array = [];
-  for (let i = low; i <= high; i++) {
-    array.push(i);
-  }
-  return array;
-}
-
-  // Creates for loop that can chooses random characters each cycle
-  for (let i = 0; i < passwordLength; i++) {
-    const character = charCodes[Math.floor(Math.random() * charCodes.length)]
-    passwordCharacters.push(String.fromCharCode)(characterCode)
-  }
-  // return passwordCharacters.join('');
-
+// Moving each function into an object
+const randomFunc = {
+lower: lowerCaseChar,
+upper: upperCaseChar,
+number: numChar,
+symbol: specialChar,
+};
 
 // Genereate Event listener
 generateEl.addEventListener('click', () => {
@@ -67,48 +41,65 @@ generateEl.addEventListener('click', () => {
   const containsSpecial = specialCharEl.checked;
 
   resultEl.innerText = generatePassword(
-    containsLower, 
-    containsUpper, 
-    containsNumber, 
-    containsSpecial, 
+    containsLower,
+    containsUpper,
+    containsNumber,
+    containsSpecial,
     length
-    );
+  );
 });
+
+// Generator Functions
+function lowerCaseChar () {
+  String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+
+function upperCaseChar () {
+  String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+
+function numChar () {
+  String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
+
+function specialChar () {
+  const special = '!@#$%^&*(){}[]=<>/,.';
+  return special[Math.floor(Math.random() * special.length)];
+}
 
 // Generate password function
 function generatePassword(lowerCaseCharEl, upperCaseCharEl, numbersEl, specialCharEl, resultEl) {
- 
-// Initiates password variable
+
+  // Initiates password variable
   let generatePassword = '';
 
   const totalPassword = lowerCaseCharEl + upperCaseCharEl + numbersEl + specialCharEl;
 
   // console.log('totalPassword', totalPassword)
 
-// Filters out unchecked boxes
-  const totalArr = [{lowerCaseCharEl}, {upperCaseCharEl}, {numbersEl}, {specialCharEl}].filter
-  (
-    item => Object.values(item) [0]
-  );
+  // Filters out unchecked boxes
+  const totalArr = [{ lowerCaseCharEl }, { upperCaseCharEl }, { numbersEl }, { specialCharEl }].filter
+    (
+      item => Object.values(item)[0]
+    );
 
-  // console.log('totalArr', totalArr);
+  console.log('totalArr', totalArr);
 
-// Checking if no boxes are checked
-  if(totalPassword ===0) {
+  // Checking if no boxes are checked
+  if (totalPassword === 0) {
     return '';
   }
 
-//For loop for the password length
-for(let i = 0; i < length; i += totalPassword) {
-  totalArr.forEach(type => {
-    const funcName = Object.keys(type)[0];
+  //For loop for the password length
+  for (let i = 0; i < passwordLength; i += totalPassword) {
+    totalArr.forEach(type => {
+      const funcName = Object.keys(type)[0];
+      console.log('funcName', funcName);
 
-
-    // generatePassword += randomFunc[funcName]();
+  
+      generatePassword += randomFunc[funcName]();
   });
 }
-
-console.log(generatePassword);
 }
 
 // Write password to the #password input
@@ -116,4 +107,35 @@ console.log(generatePassword);
 //   var password = generatePassword();
 //   var passwordText = document.querySelector("#password");
 //   passwordText.value = password;
+// 
+
+
+
+// // Creating arrays of Ascii Characters
+// // Source  https://www.youtube.com/watch?v=iKo9pDKKHnc
+// const lowerCaseChar = charArrayLowToHigh(97, 122);
+// const upperCaseChar = charArrayLowToHigh(65, 90);
+// const numChar = charArrayLowToHigh(48, 57);
+// const specialChar = charArrayLowToHigh(33, 47).concat(
+//   charArrayLowToHigh(58, 64)
+// ).concat(
+//   charArrayLowToHigh(91, 96)
+// ).concat(
+//   charArrayLowToHigh(123, 126)
+// );
+
+// // Generates loop for ascii character code range
+// function charArrayLowToHigh(low, high) {
+//   const array = [];
+//   for (let i = low; i <= high; i++) {
+//     array.push(i);
+//   }
+//   return array;
 // }
+
+// // Creates for loop that can chooses random characters each cycle
+// for (let i = 0; i < passwordLength; i++) {
+//   const character = charCodes[Math.floor(Math.random() * charCodes.length)]
+//   passwordCharacters.push(String.fromCharCode)(characterCode)
+// }
+// return passwordCharacters.join('');

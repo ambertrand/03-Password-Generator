@@ -30,6 +30,7 @@ const generateEl = document.querySelector("#generate");
 generateEl.addEventListener("click", function () {
   let length = parseInt(pwlengthEl.value);
   let generatedPassword = [];
+  let finalPassword = [];
   const special = '!@#$%^&*(){}[]=<>/,.';
   // console.log(length);
   if ((length < 8) || (length > 128)) {
@@ -38,8 +39,8 @@ generateEl.addEventListener("click", function () {
   if (lowerCaseCharEl.checked === true) {
     for (let i = 0; i < 26; i++) {
       generatedPassword.push(String.fromCharCode(Math.floor(Math.random() * 26) + 97));
+    }
   }
-}
   if (upperCaseCharEl.checked === true) {
     for (let i = 0; i < 26; i++) {
        generatedPassword.push(String.fromCharCode(Math.floor(Math.random() * 26) + 65));
@@ -55,37 +56,15 @@ generateEl.addEventListener("click", function () {
         generatedPassword.push(special[Math.floor(Math.random() * special.length)]);
     }
   }
+
+ const gpLength = generatedPassword.length; 
+  for (let i = 0; i < length; i++) {
+    let randomNum = Math.floor(Math.random() * gpLength);
+    finalPassword.push(generatedPassword[randomNum]);
+  }
+  // console.log(finalPassword);
 });
 
 // Pushing lowercase, upper, number etc. function into array
 // Hit for loop, inside randomly selected element in array
 // Push string onto page as password
-
-
-// Moving each function into an object
-// Source https://www.youtube.com/watch?v=duNmhKgtcsI
-// const charObject = {
-//   lower: lowerCaseChar,
-//   upper: upperCaseChar,
-//   number: numChar,
-//   symbol: specialChar,
-// };
-
-
-// Generator Functions using ascii characters for lower, upper & numbers
-// function lowerCaseChar() {
-//   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-// }
-
-// function upperCaseChar() {
-//   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-// }
-
-// function numChar() {
-//   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-// }
-
-// function specialChar() {
-//   const special = '!@#$%^&*(){}[]=<>/,.';
-//   return special[Math.floor(Math.random() * special.length)];
-// }

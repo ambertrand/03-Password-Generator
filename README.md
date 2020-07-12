@@ -12,3 +12,8 @@ When I got to the Javascript portion of the development I realized that the leve
 Luckily the advice worked out and I was able to create a working password generator that followed what I was trying to do!  Below are some images of my finished product.
 
 **Images**
+
+![Screenshot 1](https://user-images.githubusercontent.com/65721950/87255539-be2d6180-c459-11ea-94be-0968ef83e6fb.png)
+![Screenshot 2](https://user-images.githubusercontent.com/65721950/87255540-bec5f800-c459-11ea-8606-bbdda93f05e8.png)
+![Less than 8 Prompt screenshot](https://user-images.githubusercontent.com/65721950/87255543-c4234280-c459-11ea-9bab-8eee6fea169e.png)
+![Greater than 128 Prompt screenshot](https://user-images.githubusercontent.com/65721950/87255545-c5546f80-c459-11ea-9bf1-2579ec5133db.png)

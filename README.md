@@ -14,6 +14,6 @@ Luckily the advice worked out and I was able to create a working password genera
 **Images**
 
 ![Screenshot 1](https://user-images.githubusercontent.com/65721950/87255539-be2d6180-c459-11ea-94be-0968ef83e6fb.png)
-
+![Screenshot 2](https://user-images.githubusercontent.com/65721950/87255628-604d4980-c45a-11ea-9b43-61e63cb15649.png)
 ![Less than 8 Prompt screenshot](https://user-images.githubusercontent.com/65721950/87255543-c4234280-c459-11ea-9bab-8eee6fea169e.png)
 ![Greater than 128 Prompt screenshot](https://user-images.githubusercontent.com/65721950/87255545-c5546f80-c459-11ea-9bf1-2579ec5133db.png)

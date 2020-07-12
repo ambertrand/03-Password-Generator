@@ -33,9 +33,13 @@ generateEl.addEventListener("click", function () {
   let finalPassword = [];
   const special = '!@#$%^&*(){}[]=<>/,.';
   // console.log(length);
+
+  // Alerts user if password length selected is < 8 or >128 characters
   if ((length < 8) || (length > 128)) {
     alert("Password needs to be greater than 8 and less than 128 characters");
   }
+
+  // Selects all characters from ascii ranges & pushes to generated password array 
   if (lowerCaseCharEl.checked === true) {
     for (let i = 0; i < 26; i++) {
       generatedPassword.push(String.fromCharCode(Math.floor(Math.random() * 26) + 97));
@@ -57,12 +61,19 @@ generateEl.addEventListener("click", function () {
     }
   }
 
+  // Loop to push randomly selected charcters into final array
  const gpLength = generatedPassword.length; 
   for (let i = 0; i < length; i++) {
     let randomNum = Math.floor(Math.random() * gpLength);
     finalPassword.push(generatedPassword[randomNum]);
   }
   // console.log(finalPassword);
+
+  // Removes commas from array
+  finalPassword = finalPassword.join('');
+
+  // Pushes final password array to Password box
+  resultEl.value = finalPassword;
 });
 
 // Pushing lowercase, upper, number etc. function into array

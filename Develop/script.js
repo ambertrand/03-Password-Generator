@@ -37,6 +37,7 @@ generateEl.addEventListener("click", function () {
   // Alerts user if password length selected is < 8 or >128 characters
   if ((length < 8) || (length > 128)) {
     alert("Password needs to be greater than 8 and less than 128 characters");
+    return ;
   }
 
   // Selects all characters from ascii ranges & pushes to generated password array 

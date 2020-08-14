@@ -6,6 +6,9 @@ The goal of this project was to create a web application that generated a random
 ## Deployed Web App: 
 [Alex's Password Generator](https://ambertrand.github.io/03-Password-Generator/)
 
+## Technologies Used
+    * Basic: HTML, CSS, Javascript
+    * Bootstrap
 
 ## Developer Notes: 
 For this project I was tasked with developing a Random password generator that the user could select their password criteria and hit the Generate button to have their random password appear on the screen.  Starting out I decided to go the route of using a slider and checkboxes to allow the user to select their criteria right on the main page rather than prompting the user for which criteria they wanted.
